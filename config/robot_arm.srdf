@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<robot name="robot_arm">
+  <group name="arm">
+    <joint name="joint_1" />
+    <joint name="joint_2" />
+    <joint name="joint_3" />
+  </group>
+
+  <group name="gripper">
+    <joint name="joint_finger_left" />
+    <joint name="joint_finger_right" />
+  </group>
+
+  <end_effector name="gripper" parent_link="link_3" group="gripper"/>
+
+  <disable_collisions link1="base_link" link2="link_1" reason="Adjacent"/>
+  <disable_collisions link1="link_1" link2="link_2" reason="Adjacent"/>
+  <disable_collisions link1="link_2" link2="link_3" reason="Adjacent"/>
+  <disable_collisions link1="link_3" link2="gripper_base" reason="Adjacent"/>
+  <disable_collisions link1="gripper_base" link2="finger_left" reason="Adjacent"/>
+  <disable_collisions link1="gripper_base" link2="finger_right" reason="Adjacent"/>
+  <disable_collisions link1="finger_left" link2="finger_right" reason="Adjacent"/>
+</robot>
